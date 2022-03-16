@@ -1,8 +1,9 @@
 import './App.css';
-import StudentList from './StudentList';
+import { useState } from 'react';
+import Student from './Student'
 
 function App() {
-  const students =
+  const [studentList, setStudentList] = useState(
   [
     {
       name: 'Cait Yomorta',
@@ -62,11 +63,13 @@ function App() {
         }
       ]
     }
-  ]
+  ])
   return (
-    <div >
-      <StudentList students={students}/>
-    </div>
+    <>
+    {studentList.map(student=>
+      <Student key={student.name} student ={student}/>
+      )}
+    </>
   );
 }
 
